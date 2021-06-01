@@ -1,0 +1,28 @@
+@mixin gradient {
+  background: linear-gradient(to bottom right, #cc7d50, #8f5bfe);
+
+}
+
+@mixin sm {
+  @media only screen and (min-width: 476px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media only screen and (min-width: 668px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media only screen and (min-width: 960px) {
+    @content;
+  }
+}
+
+@mixin xlg {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}

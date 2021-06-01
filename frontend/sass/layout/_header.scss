@@ -1,0 +1,13 @@
+.header__navbar {
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    padding-bottom: 50px;
+  
+  }
+  
+  .header__navbar__basket:hover {
+    filter: invert(50%);
+   }

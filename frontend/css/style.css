@@ -1,0 +1,190 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  margin: 0 auto;
+  padding: 10px 25px;
+}
+
+html,
+body {
+  font-family: "Finger Paint", cursive;
+}
+
+.header__navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+.header__navbar__basket:hover {
+  filter: invert(50%);
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 0 20px 0;
+}
+
+.main__container {
+  text-align: center;
+  padding: 20px;
+}
+.main__container__heading {
+  font-size: 2rem;
+  padding: 40px;
+}
+
+#article {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  font-size: 2rem;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(to bottom right, #cc7d50, #8f5bfe);
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px 0px black;
+}
+@media only screen and (min-width: 960px) {
+  .card {
+    font-size: 1rem;
+    width: 45%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .card {
+    font-size: 1rem;
+    width: 30%;
+  }
+}
+.card__item {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+figure {
+  display: flex;
+  position: relative;
+  height: 200px;
+}
+@media only screen and (min-width: 476px) {
+  figure {
+    height: 300px;
+  }
+}
+@media only screen and (min-width: 668px) {
+  figure {
+    height: 500px;
+  }
+}
+@media only screen and (min-width: 960px) {
+  figure {
+    height: 300px;
+  }
+}
+
+figcaption {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  border-radius: 15px;
+  opacity: 0;
+}
+
+figure:hover figcaption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3e9f1;
+  opacity: 0.8;
+}
+
+/*# sourceMappingURL=style.css.map */
