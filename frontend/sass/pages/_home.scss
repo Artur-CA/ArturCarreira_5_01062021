@@ -1,11 +1,14 @@
 
    .main__container {
      text-align: center;
-     padding: 20px;
+     padding: 10px;
 
       &__heading {
-        font-size: 2rem;
-        padding: 40px;
+        font-size: 1.5rem;
+        padding: 10px;
+        @include md {
+          font-size: 2rem;
+        }
       }
     }
 
@@ -16,40 +19,30 @@
   
   .card {
     font-size: 2rem;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 30px;  
     @include gradient;
     border-radius: 15px;
     box-shadow: 0px 0px 15px 0px black;
-    @include lg {
+    @include md {
       font-size: 1rem;     
       width: 45%;
     }
-    @include xlg {
+    @include lg {
       font-size: 1rem;     
       width: 30%;
     }
-
-    &__item {    
-      display: flex;
-      justify-content: center;
-      padding: 10px; 
-    }
+    
+      &__article {  
+        display: flex;
+        justify-content: center;
+        padding: 10px; 
+      }
   }   
    
   figure {
     display: flex;
     position:relative;
-    height: 200px;
-    @include sm {
-      height: 300px;
-    }
-    @include md {
-      height: 500px;
-    }
-    @include lg {
-      height: 300px;
-    }
   }
   
   figcaption {

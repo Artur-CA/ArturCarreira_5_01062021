@@ -83,7 +83,7 @@ a {
 
 body {
   margin: 0 auto;
-  padding: 10px 25px;
+  padding: 10px;
 }
 
 html,
@@ -110,11 +110,16 @@ body {
 
 .main__container {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 }
 .main__container__heading {
-  font-size: 2rem;
-  padding: 40px;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+@media only screen and (min-width: 668px) {
+  .main__container__heading {
+    font-size: 2rem;
+  }
 }
 
 #article {
@@ -124,25 +129,25 @@ body {
 
 .card {
   font-size: 2rem;
-  margin: 50px auto;
+  margin: 20px auto;
   padding: 30px;
   background: linear-gradient(to bottom right, #cc7d50, #8f5bfe);
   border-radius: 15px;
   box-shadow: 0px 0px 15px 0px black;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 668px) {
   .card {
     font-size: 1rem;
     width: 45%;
   }
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 960px) {
   .card {
     font-size: 1rem;
     width: 30%;
   }
 }
-.card__item {
+.card__article {
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -151,22 +156,6 @@ body {
 figure {
   display: flex;
   position: relative;
-  height: 200px;
-}
-@media only screen and (min-width: 476px) {
-  figure {
-    height: 300px;
-  }
-}
-@media only screen and (min-width: 668px) {
-  figure {
-    height: 500px;
-  }
-}
-@media only screen and (min-width: 960px) {
-  figure {
-    height: 300px;
-  }
 }
 
 figcaption {
@@ -185,6 +174,27 @@ figure:hover figcaption {
   align-items: center;
   background-color: #f3e9f1;
   opacity: 0.8;
+}
+
+@media only screen and (min-width: 668px) {
+  .main__container__article {
+    padding: 0 20%;
+  }
+}
+
+#article__details {
+  font-size: 1rem;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(to bottom right, #cc7d50, #8f5bfe);
+  border-radius: 15px;
+  box-shadow: 0px 0px 25px 0px black;
+}
+
+.card__article__choice {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 25px 0;
 }
 
 /*# sourceMappingURL=style.css.map */
