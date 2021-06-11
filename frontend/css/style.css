@@ -84,6 +84,7 @@ a {
 body {
   margin: 0 auto;
   padding: 10px;
+  background-color: #dad4d3;
 }
 
 html,
@@ -98,9 +99,12 @@ body {
   justify-content: space-between;
   padding-bottom: 50px;
 }
+.header__navbar__icon:hover {
+  color: #bb7380;
+}
 
 .header__navbar__basket:hover {
-  filter: invert(50%);
+  filter: brightness(0);
 }
 
 .footer {

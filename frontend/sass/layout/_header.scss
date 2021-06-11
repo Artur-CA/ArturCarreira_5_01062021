@@ -5,9 +5,12 @@
     align-items: center;
     justify-content: space-between; 
     padding-bottom: 50px;
-  
+    
+    &__icon:hover {
+      color: $color-tertiary;
+    }
   }
   
   .header__navbar__basket:hover {
-    filter: invert(50%);
+    filter: brightness(0);
    }

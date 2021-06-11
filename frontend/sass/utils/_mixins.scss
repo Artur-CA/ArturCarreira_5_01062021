@@ -1,6 +1,6 @@
 @mixin gradient {
-  background: linear-gradient(to bottom right, #cc7d50, #8f5bfe);
-
+  background: linear-gradient(to bottom right, $color-primary, $color-secondary);
+ 
 }
 
 @mixin sm {
