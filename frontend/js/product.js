@@ -5,7 +5,8 @@ const ARTICLE_ID = window.location.search.substr(1);
 
 fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
   .then((response) => response.json())
-  .then((data) => {
+  .then((data) => 
+  {
     let jsonListArticle = "";
 
     // Création des éléments html
@@ -33,27 +34,47 @@ fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
                      
                             </select></span>  
                                                           
-                            <button class="addBasket" style="font-family: 'Finger Paint', cursive; border:none; background-color:#fff; padding:12px; border-radius:15px; box-shadow: 0px 0px 8px 0px white;cursor:pointer;"><strong>Ajouter au panier</strong></button>
+                            <button id ="addBtn" class="addBasket" style="font-family: 'Finger Paint', cursive; border:none; background-color:#fff; padding:12px; border-radius:15px; box-shadow: 0px 0px 8px 0px white;cursor:pointer;"><strong>Ajouter au panier</strong></button>
+                            
                         </div>`;
 
     document.getElementById("article__details").innerHTML = jsonListArticle;
 
+
+    // Changement de couleur au survol du bouton "Ajouter au panier"
+    let hover = document.querySelector(".addBasket");
+
+    hover.addEventListener("mouseover", ()=> 
+    {
+      hover.style.filter = "invert(100%"; 
+    });
+
+    hover.addEventListener("mouseout", ()=> 
+    {
+      hover.style.filter = "";     
+    });
+
+
     // Création d'une fonction avec boucle "foreach" <!-- choix de la couleur -->
     let choice = document.querySelector(".colorChoice");
-
-    data.colors.forEach(function (colors) {
+       
+    data.colors.forEach(function (colors) 
+    {
       let option = document.createElement("option");
       option.textContent = colors;
       option.value = colors;
       choice.appendChild(option);
+      
     });
 
     // Evènement "click" : déclenchement de la fonction ajout article au panier
     let basketButton = document.querySelector(".addBasket");
 
-    basketButton.addEventListener("click", () => {
+    basketButton.addEventListener("click", () => 
+    {
       let select = document.querySelector(".colorChoice");
       data.colorSelect = select.value;
+      onmouseover="this.style.background='#FFFF99'";
       addItemBasket(data);
       
     });
@@ -63,14 +84,14 @@ fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
   .catch((err) => console.log(err));
 
 // Fonction ajout article au panier
-function addItemBasket(item) {
+function addItemBasket(item) 
+{
   // variable tableau
-
-  
   let arrayItem = [];
 
   // stockage dans un objet
-  let objectItemBasket = {
+  let objectItemBasket = 
+  {
     _id: item._id,
     imageUrl: item.imageUrl,
     name: item.name,
@@ -82,19 +103,20 @@ function addItemBasket(item) {
   let otherItem = true;
 
   // Si localStorage est vide, création nouveau tableau "arrayItem" et enregistrement dans localStorage
-  if (localStorage.getItem("teddy") === null) {
+  if (localStorage.getItem("teddy") === null) 
+  {
     arrayItem.push(objectItemBasket);
     localStorage.setItem("teddy", JSON.stringify(arrayItem));
   }
 
   // Sinon récupération du tableau de localStorage et ajout nouveau produit et enregistrement nouveau tableau
-  else {
+  else 
+  {
     arrayItem = JSON.parse(localStorage.getItem("teddy"));
-    arrayItem.forEach((product) => {
-      if (
-        item._id === product._id &&
-        item.colorSelect === product.colorSelect
-      ) {
+    arrayItem.forEach((product) => 
+    {
+      if (item._id === product._id && item.colorSelect === product.colorSelect) 
+      {
         product.quantity += 1;
         otherItem = false;
       }

@@ -1,12 +1,14 @@
 // Récupération des données avec l'API fetch
 fetch("http://localhost:3000/api/teddies")
   .then((response) => response.json())
-  .then((data) => {
+  .then((data) => 
+  {
     // Création d'une variable
     let jsonListArticle = "";
 
     // Boucle pour récupérer les données
-    for (let i = 0; i < data.length; i += 1) {
+    for (let i = 0; i < data.length; i += 1) 
+    {
       console.log(data[i].name);
 
       // Création des éléments html

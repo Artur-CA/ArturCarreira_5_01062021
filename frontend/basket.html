@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco - Ours en peluche faits à la main</title>
+    <meta name="description" content="Orinoco, site de vente en ligne d'ours en peluche faits à la main" />
+    <meta name="robots" content="index" />
+    <link rel="shortcut icon" type="image/png" href="/frontend/img/logo_orinoco.png" />    
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+</head>
+
+<body>    
+
+      <header class="header"> 
+
+        <nav class="header__navbar">
+            <a class="header__navbar__icon" href="index.html"><i class="fas fa-home fa-3x"></i></a>
+            <img class="header__navbar__log" src="/frontend/img/orinoco.png" alt="Logo Orinoco" />
+            <a class="header__navbar__basket" href="basket.html"><img src="/frontend/img/basket.png" alt="panier"></img></a>
+        </nav>       
+      </header>
+  
+     
+    
+      <main class="main__container">
+        <h1 class="main__container__heading">Vos achats</h1>
+        <h2 id ="emptyBasket"></h2>
+          <div id="main__container__basket">
+              <table id="basket__details">          
+                <thead>
+                  <tr>
+                    <th class="card__article__img"></th>
+                    <th>Prix</th>
+                    <th>Article</th>
+                    <th>Nb</th>
+                    <th>X</th>
+                    <th>Prix Total</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>TOTAL</td>
+                  <td id="totalPrice"></td>
+                  </tr>
+                </tfoot>  
+                           
+              </table>
+
+              <button id="clearBasket">Vider le Panier</button>
+          </div>
+
+      </main>
+                  
+
+      <footer class="footer">         
+           <p>Copyright © Orinoco - 2021 - All right reserved</p>
+      </footer>        
+ 
+        <script src="https://kit.fontawesome.com/ffb09557c8.js" crossorigin="anonymous"></script>
+        <script src="/frontend/js/basket.js"></script> 
+       
+</body>
+</html>

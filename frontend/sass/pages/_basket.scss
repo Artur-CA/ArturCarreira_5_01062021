@@ -1,0 +1,47 @@
+footer,
+td,
+th {
+  font-size: 0.7rem;
+  @include sm {
+    font-size: 0.6rem;
+  }
+  @include md {
+    font-size: 0.8rem;
+  }
+  @include lg {
+    font-size: 1rem;
+  }
+}
+
+.main__container__heading {
+  margin-bottom: 10%;
+}
+
+#main__container__basket{
+  @include md {
+  padding: 0 10%;
+  }
+  @include lg {
+    padding: 0 15%;
+    }
+}
+
+#clearBasket {
+  font-family: 'Finger Paint', cursive;
+  border: none;
+  border-radius: 15px;
+  font-size: 10px;
+  padding: 12px 15px;
+  margin-top: 30px;
+  color: #fff;
+  @include gradient;
+  cursor: pointer;
+}
+
+#clearBasket:hover {
+  box-shadow: 0 0 10px black;
+  
+}
+
+
+
