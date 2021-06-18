@@ -46,7 +46,7 @@ fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
 
     hover.addEventListener("mouseover", ()=> 
     {
-      hover.style.filter = "invert(100%"; 
+      hover.style.filter = "invert(100%)"; 
     });
 
     hover.addEventListener("mouseout", ()=> 
@@ -68,14 +68,15 @@ fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
     });
 
     // Evènement "click" : déclenchement de la fonction ajout article au panier
-    let basketButton = document.querySelector(".addBasket");
+    let basketBtn = document.querySelector(".addBasket");
 
-    basketButton.addEventListener("click", () => 
+    basketBtn.addEventListener("click", () => 
     {
       let select = document.querySelector(".colorChoice");
       data.colorSelect = select.value;
       onmouseover="this.style.background='#FFFF99'";
       addItemBasket(data);
+      window.location.reload("basket.js");
       
     });
   })

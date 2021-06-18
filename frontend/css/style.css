@@ -87,6 +87,41 @@ body {
   background-color: #dad4d3;
 }
 
+.main__container__confirmation,
+.form__container,
+footer,
+td,
+th {
+  font-size: 0.5rem;
+}
+@media only screen and (min-width: 375px) {
+  .main__container__confirmation,
+.form__container,
+footer,
+td,
+th {
+    font-size: 0.6rem;
+  }
+}
+@media only screen and (min-width: 668px) {
+  .main__container__confirmation,
+.form__container,
+footer,
+td,
+th {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .main__container__confirmation,
+.form__container,
+footer,
+td,
+th {
+    font-size: 1rem;
+  }
+}
+
 html,
 body {
   font-family: "Finger Paint", cursive;
@@ -103,8 +138,20 @@ body {
   color: #bb7380;
 }
 
+.header__navbar__basket {
+  display: flex;
+}
+.header__navbar__basket__basket-nb {
+  display: flex;
+  width: 65px;
+  height: 45px;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
 .header__navbar__basket:hover {
-  filter: brightness(0);
+  filter: saturate(0);
+  color: #fff;
 }
 
 .footer {
@@ -117,7 +164,7 @@ body {
   padding: 10px;
 }
 .main__container__heading {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 10px;
 }
 @media only screen and (min-width: 668px) {
@@ -201,33 +248,6 @@ figure:hover figcaption {
   padding: 0 0 25px 0;
 }
 
-footer,
-td,
-th {
-  font-size: 0.7rem;
-}
-@media only screen and (min-width: 476px) {
-  footer,
-td,
-th {
-    font-size: 0.6rem;
-  }
-}
-@media only screen and (min-width: 668px) {
-  footer,
-td,
-th {
-    font-size: 0.8rem;
-  }
-}
-@media only screen and (min-width: 960px) {
-  footer,
-td,
-th {
-    font-size: 1rem;
-  }
-}
-
 .main__container__heading {
   margin-bottom: 10%;
 }
@@ -243,6 +263,7 @@ th {
   }
 }
 
+#formSubmit,
 #clearBasket {
   font-family: "Finger Paint", cursive;
   border: none;
@@ -255,8 +276,34 @@ th {
   cursor: pointer;
 }
 
+#formSubmit:hover,
 #clearBasket:hover {
   box-shadow: 0 0 10px black;
+}
+
+.form__container {
+  margin: 10px;
+}
+.form__container h2 {
+  text-align: center;
+  margin: 100px 0 20px 0;
+}
+
+.form__contain {
+  width: 370px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.form__contain__text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.form__contain__input {
+  width: 280px;
+}
+.form__contain__submit {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

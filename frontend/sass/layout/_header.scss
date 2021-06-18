@@ -1,18 +1,33 @@
 .header__navbar {
-   
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between; 
     padding-bottom: 50px;
     
-    
     &__icon:hover {
       color: $color-tertiary;
     }
   }
   
+  .header__navbar__basket {
+    display: flex;
+
+    &__basket-nb{
+      display: flex;
+      width: 65px;
+      height: 45px;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:hover{
+      filter: saturate(0);
+      color:#fff;
+     }
+  }
+ 
   
-  .header__navbar__basket:hover {
-    filter: brightness(0);
-   }
+
+   

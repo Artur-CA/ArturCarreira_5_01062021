@@ -29,3 +29,7 @@ fetch("http://localhost:3000/api/teddies")
 
   // Message d'erreur
   .catch((err) => console.log(err));
+
+
+
+

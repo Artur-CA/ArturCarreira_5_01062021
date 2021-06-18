@@ -1,6 +1,18 @@
+// ******************** PANIER **********************
+
 // Récupération panier dans localStorage
 let arrayItem = JSON.parse(localStorage.getItem("teddy")) ? JSON.parse(localStorage.getItem("teddy")) : [];
 
+// Calcul quantité total
+let basketQuantity = 0;
+function quantityTotalBasket(data)
+{
+  basketQuantity += data.quantity;
+
+  // Affichage quantité total
+  let totalQuantity = document.getElementById('totalQuantity').textContent = basketQuantity;
+  localStorage.setItem('totalQuantity', JSON.stringify(totalQuantity));
+};
 
 // Calcul prix total
 let basketPrice = 0;
@@ -13,6 +25,8 @@ function priceTotalBasket(data)
   localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
 };
 
+ // Récupération id
+ let articleId = [];
 
 // Emplacement du html
 let container = document.getElementById("basket__details");
@@ -30,11 +44,11 @@ arrayItem.forEach((data, I) =>
                 <td >${data.quantity * data.price / 100} €</td>          
               </tr>`;
 
-  // Appel fonction pour affichage "Total"
+  // Appel fonctions pour affichage "Total"
   priceTotalBasket(data)
+  quantityTotalBasket(data)
 
-  // Récupération id
-  let articleId = [];
+ 
 
  // Incrémentation id
   for (let i = 0; i < data.quantity; i++) 
@@ -98,4 +112,64 @@ function deleteTeddy(I)
 };
 
 
+// ******************** FORMULAIRE ***********************
+
+// Fonction enregistrement commande
+function order() 
+{
+  let form = document.getElementById("form");
+  if (form.reportValidity() == true && articleId.length > 0) 
+  {
+    let contact = 
+    {
+      'firstName': document.getElementById("firstName").value,
+      'lastName': document.getElementById("lastName").value,
+      'address': document.getElementById("address").value,
+      'city': document.getElementById("city").value,
+      'email': document.getElementById("email").value
+    };
+
+    let products = articleId;
+
+    let userForm = JSON.stringify (
+    {
+      contact,
+      products,
+    });
+
+    // Appel du serveur et envoi des données avec POST
+    fetch('http://localhost:3000/api/teddies/order', 
+    {
+      method: 'POST',
+      headers: 
+      {
+        'content-type': "application/json"
+      },
+      mode: "cors",
+      body: userForm
+    })
+      .then(function (response) 
+      {
+        return response.json()
+      })
+      .then(function (data) 
+      {
+        localStorage.setItem("contact", JSON.stringify(data.contact));
+        window.location.assign("confirmation.html?orderId=" + data.orderId);
+      })
+
+      // Message d'erreur
+      .catch((err) => console.log(err));
+  }
+  else  
+    alert ("Une erreur est survenue : \nPanier vide ou formulaire non valide !");
+}
+
+// Evènement "click" : déclenchement de la fonction enregistrement commande
+let formBtn = document.getElementById("formSubmit");
+formBtn.addEventListener('click', function (e) 
+{
+  e.preventDefault();
+  order();
+});
 

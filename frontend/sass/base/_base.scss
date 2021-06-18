@@ -9,4 +9,20 @@ a {
     background-color: #dad4d3;
   
   }
-  
+
+.main__container__confirmation,
+.form__container,
+footer,
+td,
+th {
+  font-size: 0.5rem;
+  @include sm {
+    font-size: 0.6rem;
+  }
+  @include md {
+    font-size: 0.8rem;
+  }
+  @include lg {
+    font-size: 1rem;
+  }
+}

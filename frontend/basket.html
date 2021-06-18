@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orinoco - Ours en peluche faits à la main</title>
+    <title>Orinoco - Ours en peluche faits à la main - Panier</title>
     <meta name="description" content="Orinoco, site de vente en ligne d'ours en peluche faits à la main" />
     <meta name="robots" content="index" />
     <link rel="shortcut icon" type="image/png" href="/frontend/img/logo_orinoco.png" />    
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+
 </head>
 
 <body>    
@@ -20,15 +21,18 @@
         <nav class="header__navbar">
             <a class="header__navbar__icon" href="index.html"><i class="fas fa-home fa-3x"></i></a>
             <img class="header__navbar__log" src="/frontend/img/orinoco.png" alt="Logo Orinoco" />
-            <a class="header__navbar__basket" href="basket.html"><img src="/frontend/img/basket.png" alt="panier"></img></a>
+            <a class="header__navbar__basket" href="basket.html">
+              <img class="header__navbar__basket__img" src="/frontend/img/basket.png" alt="panier"/>
+              <span id="totalQuantity" class="header__navbar__basket__basket-nb"></span> 
+            </a>
         </nav>       
       </header>
   
      
-    
-      <main class="main__container">
-        <h1 class="main__container__heading">Vos achats</h1>
-        <h2 id ="emptyBasket"></h2>
+    <main>
+        <div class="main__container">
+          <h1 class="main__container__heading">Vos achats</h1>
+          <h2 id ="emptyBasket"></h2>
           <div id="main__container__basket">
               <table id="basket__details">          
                 <thead>
@@ -56,7 +60,46 @@
 
               <button id="clearBasket">Vider le Panier</button>
           </div>
+        </div>
 
+        <div class="form__container">
+          <h2>Veuillez remplir le formulaire ci-dessous avant de valider votre commande</h2>
+
+          <form class="form__contain" action="#" method="POST" id="form">
+        
+            <div class="form__contain__text">
+              <label for="firstName">Prénom :</label>
+              <input type="text" class="form__contain__input" id="firstName" name="firstName" required="required" placeholder="Camille" />
+            </div>
+        
+            <div class="form__contain__text">
+              <label for="lastName">Nom :</label>
+              <input type="text" class="form__contain__input" id="lastName" name="lastName" required="required" placeholder="Dupont" />
+            </div>
+        
+            <div class="form__contain__text">
+              <label for="address">Adresse :</label>
+              <input type="text" class="form__contain__input" id="address" name="address" required="required" placeholder="999 avenue de France" />
+            </div>
+        
+            <div class="form__contain__text">
+              <label for="city">Ville :</label>
+              <input type="text" class="form__contain__input" id="city" name="city" required="required" placeholder="Paris"
+                     pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" />
+            </div>
+        
+            <div class="form__contain__text">
+              <label for="email">E-mail :</label>
+              <input type="email" class="form__contain__input" id="email" name="email" required="required" placeholder="oc@gmail.com"
+                     pattern="[a-zA-Z0-9._-]+[@]{1}[a-zA-Z0-9._-]+[.]{1}[a-z]{2,10}$" />
+            </div><br />
+        
+            <div class="form__contain__submit"><input type="submit" value="Commander" id="formSubmit" />
+            </div>
+        
+           
+          </form>
+        </div>
       </main>
                   
 
