@@ -25,7 +25,7 @@ function priceTotalBasket(data)
   localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
 };
 
- // Récupération id
+ // Récupération id sous forme de tableau
  let articleId = [];
 
 // Emplacement du html
@@ -48,13 +48,11 @@ arrayItem.forEach((data, I) =>
   priceTotalBasket(data)
   quantityTotalBasket(data)
 
- 
-
- // Incrémentation id
-  for (let i = 0; i < data.quantity; i++) 
-  {
-    articleId .push(data._id);
-  }
+   // Incrémentation id
+   for (let i = 0; i < data.quantity; i++) 
+   {
+     articleId.push(data._id);
+   }
 });
 
 
@@ -112,6 +110,7 @@ function deleteTeddy(I)
 };
 
 
+
 // ******************** FORMULAIRE ***********************
 
 // Fonction enregistrement commande
@@ -148,11 +147,8 @@ function order()
       mode: "cors",
       body: userForm
     })
-      .then(function (response) 
-      {
-        return response.json()
-      })
-      .then(function (data) 
+      .then((response) => response.json())
+      .then((data) => 
       {
         localStorage.setItem("contact", JSON.stringify(data.contact));
         window.location.assign("confirmation.html?orderId=" + data.orderId);
@@ -164,6 +160,7 @@ function order()
   else  
     alert ("Une erreur est survenue : \nPanier vide ou formulaire non valide !");
 }
+
 
 // Evènement "click" : déclenchement de la fonction enregistrement commande
 let formBtn = document.getElementById("formSubmit");

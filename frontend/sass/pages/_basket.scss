@@ -40,9 +40,12 @@
 }
 
 .form__contain {
-  width: 370px;
+  width: 270px;
   margin: 0 auto;
   padding: 20px 0;
+  @include md {
+    width: 370px;
+  }
 
     &__text {
       display: flex;
@@ -51,7 +54,10 @@
     }
 
     &__input {
-      width: 280px;
+      width: 180px;
+      @include md {
+        width: 280px;
+        }
     }
   
     &__submit {

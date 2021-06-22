@@ -5,8 +5,15 @@
     justify-content: space-between; 
     padding-bottom: 50px;
     
-    &__icon:hover {
-      color: $color-tertiary;
+    &__icon {
+      background: linear-gradient(to bottom right, #cc7d50, #8f5bfe);
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      
+      &:hover{
+        filter: saturate(0);
+        color:#fff;
+       }
     }
   }
   

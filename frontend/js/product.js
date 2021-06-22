@@ -2,7 +2,6 @@
 const ARTICLE_ID = window.location.search.substr(1);
 
 // Récupération de l'article et son "id" depuis le serveur
-
 fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
   .then((response) => response.json())
   .then((data) => 
@@ -76,19 +75,20 @@ fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
       data.colorSelect = select.value;
       onmouseover="this.style.background='#FFFF99'";
       addItemBasket(data);
-      window.location.reload("basket.js");
-      
+      window.location.reload();
     });
   })
 
   // Message d'erreur
   .catch((err) => console.log(err));
+ 
 
 // Fonction ajout article au panier
 function addItemBasket(item) 
 {
   // variable tableau
   let arrayItem = [];
+ 
 
   // stockage dans un objet
   let objectItemBasket = 
@@ -126,6 +126,52 @@ function addItemBasket(item)
     // Si nouveau produit, création nouveau tableau "arrayItem" et enregistrement dans localStorage
     if (otherItem) arrayItem.push(objectItemBasket);
     localStorage.setItem("teddy", JSON.stringify(arrayItem));
+    
   }
-
 }
+
+// Récupération panier dans localStorage
+let arrayItem = JSON.parse(localStorage.getItem("teddy")) ? JSON.parse(localStorage.getItem("teddy")) : [];
+
+// Calcul quantité total
+let basketQuantity = 0;
+function quantityTotalBasket(data)
+{
+  basketQuantity += data.quantity;
+
+  // Affichage quantité total
+  let totalQuantity = document.getElementById('totalQuantity').textContent = basketQuantity;
+  localStorage.setItem('totalQuantity', JSON.stringify(totalQuantity));
+};
+
+// Récupération id sous forme de tableau
+let articleId = [];
+
+// Affichage de chaque élément du panier
+arrayItem.forEach((data) => 
+{
+  // Appel fonction pour affichage "Total"
+  quantityTotalBasket(data)
+
+ // Incrémentation id
+  for (let i = 0; i < data.quantity; i++) 
+  {
+    articleId.push(data._id);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

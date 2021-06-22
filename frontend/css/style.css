@@ -134,8 +134,14 @@ body {
   justify-content: space-between;
   padding-bottom: 50px;
 }
+.header__navbar__icon {
+  background: linear-gradient(to bottom right, #cc7d50, #8f5bfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .header__navbar__icon:hover {
-  color: #bb7380;
+  filter: saturate(0);
+  color: #fff;
 }
 
 .header__navbar__basket {
@@ -290,9 +296,14 @@ figure:hover figcaption {
 }
 
 .form__contain {
-  width: 370px;
+  width: 270px;
   margin: 0 auto;
   padding: 20px 0;
+}
+@media only screen and (min-width: 668px) {
+  .form__contain {
+    width: 370px;
+  }
 }
 .form__contain__text {
   display: flex;
@@ -300,7 +311,12 @@ figure:hover figcaption {
   margin-bottom: 10px;
 }
 .form__contain__input {
-  width: 280px;
+  width: 180px;
+}
+@media only screen and (min-width: 668px) {
+  .form__contain__input {
+    width: 280px;
+  }
 }
 .form__contain__submit {
   text-align: center;

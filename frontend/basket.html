@@ -69,12 +69,14 @@
         
             <div class="form__contain__text">
               <label for="firstName">Prénom :</label>
-              <input type="text" class="form__contain__input" id="firstName" name="firstName" required="required" placeholder="Camille" />
+              <input type="text" class="form__contain__input" id="firstName" name="firstName" required="required" placeholder="Camille" 
+                     pattern="^[a-zA-ZÀ-ÿ]{1}[a-zA-Z'À-ÿ -]+$" />
             </div>
         
             <div class="form__contain__text">
               <label for="lastName">Nom :</label>
-              <input type="text" class="form__contain__input" id="lastName" name="lastName" required="required" placeholder="Dupont" />
+              <input type="text" class="form__contain__input" id="lastName" name="lastName" required="required" placeholder="Dupont" 
+                     pattern="^[a-zA-ZÀ-ÿ]{1}[a-zA-Z'À-ÿ -]+$" />
             </div>
         
             <div class="form__contain__text">
