@@ -104,16 +104,16 @@ function addItemBasket(item)
   let otherItem = true;
 
   // Si localStorage est vide, création nouveau tableau "arrayItem" et enregistrement dans localStorage
-  if (localStorage.getItem("teddy") === null) 
+  if (sessionStorage.getItem("teddy") === null) 
   {
     arrayItem.push(objectItemBasket);
-    localStorage.setItem("teddy", JSON.stringify(arrayItem));
+    sessionStorage.setItem("teddy", JSON.stringify(arrayItem));
   }
 
   // Sinon récupération du tableau de localStorage et ajout nouveau produit et enregistrement nouveau tableau
   else 
   {
-    arrayItem = JSON.parse(localStorage.getItem("teddy"));
+    arrayItem = JSON.parse(sessionStorage.getItem("teddy"));
     arrayItem.forEach((product) => 
     {
       if (item._id === product._id && item.colorSelect === product.colorSelect) 
@@ -125,40 +125,12 @@ function addItemBasket(item)
 
     // Si nouveau produit, création nouveau tableau "arrayItem" et enregistrement dans localStorage
     if (otherItem) arrayItem.push(objectItemBasket);
-    localStorage.setItem("teddy", JSON.stringify(arrayItem));
+    sessionStorage.setItem("teddy", JSON.stringify(arrayItem));
     
   }
 }
 
-// Récupération panier dans localStorage
-let arrayItem = JSON.parse(localStorage.getItem("teddy")) ? JSON.parse(localStorage.getItem("teddy")) : [];
 
-// Calcul quantité total
-let basketQuantity = 0;
-function quantityTotalBasket(data)
-{
-  basketQuantity += data.quantity;
-
-  // Affichage quantité total
-  let totalQuantity = document.getElementById('totalQuantity').textContent = basketQuantity;
-  localStorage.setItem('totalQuantity', JSON.stringify(totalQuantity));
-};
-
-// Récupération id sous forme de tableau
-let articleId = [];
-
-// Affichage de chaque élément du panier
-arrayItem.forEach((data) => 
-{
-  // Appel fonction pour affichage "Total"
-  quantityTotalBasket(data)
-
- // Incrémentation id
-  for (let i = 0; i < data.quantity; i++) 
-  {
-    articleId.push(data._id);
-  }
-});
 
 
 

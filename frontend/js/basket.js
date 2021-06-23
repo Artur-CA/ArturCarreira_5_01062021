@@ -1,18 +1,7 @@
 // ******************** PANIER **********************
 
 // Récupération panier dans localStorage
-let arrayItem = JSON.parse(localStorage.getItem("teddy")) ? JSON.parse(localStorage.getItem("teddy")) : [];
-
-// Calcul quantité total
-let basketQuantity = 0;
-function quantityTotalBasket(data)
-{
-  basketQuantity += data.quantity;
-
-  // Affichage quantité total
-  let totalQuantity = document.getElementById('totalQuantity').textContent = basketQuantity;
-  localStorage.setItem('totalQuantity', JSON.stringify(totalQuantity));
-};
+let arrayItem = JSON.parse(sessionStorage.getItem("teddy")) ? JSON.parse(sessionStorage.getItem("teddy")) : [];
 
 // Calcul prix total
 let basketPrice = 0;
@@ -22,11 +11,11 @@ function priceTotalBasket(data)
 
   // Affichage prix total
   let totalPrice = document.getElementById('totalPrice').textContent = basketPrice + " € ";
-  localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+  sessionStorage.setItem('totalPrice', JSON.stringify(totalPrice));
 };
 
- // Récupération id sous forme de tableau
- let articleId = [];
+// Récupération id sous forme de tableau
+let articleId = [];
 
 // Emplacement du html
 let container = document.getElementById("basket__details");
@@ -44,17 +33,16 @@ arrayItem.forEach((data, I) =>
                 <td >${data.quantity * data.price / 100} €</td>          
               </tr>`;
 
-  // Appel fonctions pour affichage "Total"
+  // Appel fonction pour affichage "Total"
   priceTotalBasket(data)
-  quantityTotalBasket(data)
-
-   // Incrémentation id
-   for (let i = 0; i < data.quantity; i++) 
-   {
-     articleId.push(data._id);
-   }
+  
+ // Incrémentation id
+ for (let i = 0; i < data.quantity; i++) 
+ {
+   articleId.push(data._id);
+ }
+  
 });
-
 
 // Evènement "click" : déclenchement de la fonction vider le panier
 let clearBasket = document.getElementById('clearBasket')
@@ -68,7 +56,7 @@ function deleteBasket()
   } 
   else 
   {
-    localStorage.clear();
+    sessionStorage.clear();
     window.location.reload();
   }
 };
@@ -102,9 +90,9 @@ function deleteTeddy(I)
       arrayItem.splice(I, 1);
 
     if (arrayItem.length === 0)
-      localStorage.clear();
+      sessionStorage.clear();
     else
-      localStorage.setItem('teddy', JSON.stringify(arrayItem));
+      sessionStorage.setItem('teddy', JSON.stringify(arrayItem));
 
     window.location.reload();
 };
@@ -150,13 +138,14 @@ function order()
       .then((response) => response.json())
       .then((data) => 
       {
-        localStorage.setItem("contact", JSON.stringify(data.contact));
+        sessionStorage.setItem("contact", JSON.stringify(data.contact));
         window.location.assign("confirmation.html?orderId=" + data.orderId);
       })
 
       // Message d'erreur
       .catch((err) => console.log(err));
   }
+
   else  
     alert ("Une erreur est survenue : \nPanier vide ou formulaire non valide !");
 }

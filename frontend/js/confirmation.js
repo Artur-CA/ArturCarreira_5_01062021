@@ -2,10 +2,10 @@
 const ORDER_ID = window.location.search.substr(9);
 
 // Récupération données contact
-let contact = JSON.parse(localStorage.getItem("contact"));
+let contact = JSON.parse(sessionStorage.getItem("contact"));
 
 // Récupération prix total
-let totalPrice = JSON.parse(localStorage.getItem("totalPrice"));
+let totalPrice = JSON.parse(sessionStorage.getItem("totalPrice"));
 
 // Affichage html
 function userConfirm() {
