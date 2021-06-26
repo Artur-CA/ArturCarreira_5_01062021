@@ -3,6 +3,7 @@ const ARTICLE_ID = window.location.search.substr(1);
 
 // Récupération de l'article et son "id" depuis le serveur
 fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
+
   .then((response) => response.json())
   .then((data) => 
   {
@@ -56,27 +57,27 @@ fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
 
     // Création d'une fonction avec boucle "foreach" <!-- choix de la couleur -->
     let choice = document.querySelector(".colorChoice");
-       
-    data.colors.forEach(function (colors) 
+
+    data.colors.forEach(function displayColor (color)
     {
       let option = document.createElement("option");
-      option.textContent = colors;
-      option.value = colors;
+      option.textContent = color;
+      option.value = color;
       choice.appendChild(option);
-      
     });
 
     // Evènement "click" : déclenchement de la fonction ajout article au panier
     let basketBtn = document.querySelector(".addBasket");
+    basketBtn.addEventListener("click", addBasket);
 
-    basketBtn.addEventListener("click", () => 
+    function addBasket()
     {
       let select = document.querySelector(".colorChoice");
       data.colorSelect = select.value;
       onmouseover="this.style.background='#FFFF99'";
       addItemBasket(data);
       window.location.reload();
-    });
+    };
   })
 
   // Message d'erreur
@@ -126,7 +127,6 @@ function addItemBasket(item)
     // Si nouveau produit, création nouveau tableau "arrayItem" et enregistrement dans localStorage
     if (otherItem) arrayItem.push(objectItemBasket);
     sessionStorage.setItem("teddy", JSON.stringify(arrayItem));
-    
   }
 }
 

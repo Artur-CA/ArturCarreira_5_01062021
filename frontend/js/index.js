@@ -1,4 +1,4 @@
-// Récupération des données avec l'API fetch
+// Récupération des données avec la méthode fetch
 fetch("http://localhost:3000/api/teddies")
   .then((response) => response.json())
   .then((data) => 

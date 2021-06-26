@@ -1,14 +1,17 @@
 // Affichage nombre article panier
-function displayNumber() {
+function displayNumber() 
+{
     
     basketNumber = document.getElementById('totalQuantity')
     let basketQuantity = 0;
 
-    if (sessionStorage.getItem('teddy') !== null) {
+    if (sessionStorage.getItem('teddy') !== null) 
+    {
         
         let number = JSON.parse(sessionStorage.getItem('teddy'));
         
-        number.forEach((prod) => {
+        number.forEach((prod) => 
+        {
             basketQuantity += prod.quantity;
         });
     }
