@@ -40,7 +40,6 @@ fetch(`http://localhost:3000/api/teddies/${ARTICLE_ID}`)
 
     document.getElementById("article__details").innerHTML = jsonListArticle;
 
-
     // Changement de couleur au survol du bouton "Ajouter au panier"
     let hover = document.querySelector(".addBasket");
 
